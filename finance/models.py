@@ -39,3 +39,18 @@ class Account(models.Model):
 
     def __str__(self):
         return self.account_name
+
+class Category(models.Model):
+
+    class CategoryType(models.TextChoices):
+        EXPENSE = 'EX','Expense'
+        SPEND = 'SP','Spend'
+
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="categories")
+    category_type = models.CharField(max_length=10,choices=CategoryType.choices)
+    is_active = models.BooleanField(default=True)
+    name = models.CharField(max_length=50)
+
+
+    def __str__(self):
+        return self.name
