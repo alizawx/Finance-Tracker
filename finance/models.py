@@ -27,8 +27,8 @@ class Account(models.Model):
 class Category(models.Model):
 
     class CategoryType(models.TextChoices):
-        EXPENSE = 'EX','Expense'
-        SPEND = 'SP','Spend'
+        INCOME = "IN", "Income"
+        EXPENSE = "EX", "Expense"
 
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="categories")
     category_type = models.CharField(max_length=10,choices=CategoryType.choices)

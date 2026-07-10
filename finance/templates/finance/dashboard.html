@@ -1,5 +1,12 @@
+{% load humanize %}
+
+
 <h1>Finance Tracker Dashboard</h1>
 <hr>
 <p>Account 🏦:  {{account_count}} </p>
 <p>Category 🗂️:  {{category_count}} </p>
 <p>Transactions 💸:  {{transactions_count}} </p>
+<p> Balance 💳: {{balance|intcomma}} IRR </p>
+<hr>
+<h1>Transactions</h1>
+<p>Transactions list :  {{total_transactions}} </p>
