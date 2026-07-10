@@ -15,26 +15,10 @@ class Account(models.Model):
         USD = "USD", "US Dollar"
 
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="accounts")
-
     account_name = models.CharField(max_length=50)
-
-    account_type = models.CharField(
-        max_length=2,
-        choices=AccountType.choices
-    )
-
-    currency = models.CharField(
-        max_length=3,
-        choices=Currency.choices,
-        default=Currency.IRR
-    )
-
-    opening_balance = models.DecimalField(
-        max_digits=15,
-        decimal_places=2,
-        default=0
-    )
-
+    account_type = models.CharField(max_length=2,choices=AccountType.choices)
+    currency = models.CharField(max_length=3,choices=Currency.choices,default=Currency.IRR)
+    opening_balance = models.DecimalField(max_digits=15,decimal_places=2,default=0)
     account_status = models.BooleanField(default=True)
 
     def __str__(self):
@@ -56,6 +40,9 @@ class Category(models.Model):
         return self.name
 
 class Transaction(models.Model):
+    @property
+    def formatted_amount(self):
+        return f"{self.amount:,.2f} {self.account.currency}"
 
     account = models.ForeignKey(Account,on_delete=models.CASCADE,related_name="transactions")
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name="transactions")

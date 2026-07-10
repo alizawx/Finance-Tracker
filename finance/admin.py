@@ -24,9 +24,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
+
     list_display = (
         "account",
         "category",
-        "amount",
+        "formatted_amount",
         "transaction_date",
     )
