@@ -1,6 +1,25 @@
 <h1>Transactions</h1>
 
-{% for transaction in transactions %}
-    {{ transaction }}
-    <br>
-{% endfor %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Account</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.transaction_date }}</td>
+            <td>{{ transaction.account }}</td>
+            <td>{{ transaction.category }}</td>
+            <td>{{ transaction.formatted_amount }}</td>
+            <td>{{ transaction.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
