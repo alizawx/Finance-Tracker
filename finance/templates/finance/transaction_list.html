@@ -23,3 +23,22 @@
         {% endfor %}
     </tbody>
 </table>
+<hr>
+
+<h1>data</h1>
+{% for transaction in transactions %}
+    <p>{{transaction.transaction_date}}</p>
+    {% endfor %}
+<hr>
+
+<h1>account list</h1>
+{% for transaction in transactions %}
+    <p>{{transaction.account}}</p>
+    {% endfor %}
+<hr>
+
+<h1>description list</h1>
+{% for transaction in transactions %}
+    <p>{{transaction.description}}</p>
+    {% endfor %}
+<hr>

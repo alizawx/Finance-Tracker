@@ -27,4 +27,3 @@ class TransactionListView(ListView):
     model = Transaction
     template_name = "finance/transaction_list.html"
     context_object_name = "transactions"
-       
