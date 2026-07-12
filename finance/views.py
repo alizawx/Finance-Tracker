@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from .models import Account,Category,Transaction
 from django.db.models import Sum
 from django.views.generic import ListView
+from django.core.paginator import Paginator
 # Create your views here.
 
 class DashboardView(TemplateView):
@@ -27,3 +28,4 @@ class TransactionListView(ListView):
     model = Transaction
     template_name = "finance/transaction_list.html"
     context_object_name = "transactions"
+    paginate_by = 2
