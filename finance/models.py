@@ -59,5 +59,16 @@ class Transaction(models.Model):
         return f"{self.category.name} {self.amount}"
 
 
+class saving_goal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.DecimalField()
+    amount_goal = models.DecimalField()
+    proses = (amount_goal / amount) * 100
+    data = models.DateField(auto_now_add=True)
+    description = models.TextChoices()
+    history = None
+    
 
 
+class searching(models.Model):
+    pass
